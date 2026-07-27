@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - contacts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="loading.html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Stratify School</span>
+            </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="student.html"><i class="fas fa-user-graduate"></i> Student Portal</a></li>
+            <li><a href="teacher.html"><i class="fas fa-chalkboard-teacher"></i> Teacher Portal</a></li>
+            <li><a href="admin.html"><i class="fas fa-user-cog"></i> Admin Portal</a></li>
+            <li><a href="parent.html"><i class="fas fa-users"></i> Parent Portal</a></li>
+            <li><a href="admissions.html"><i class="fas fa-door-open"></i> Admissions</a></li>
+            <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="contact.html" class="active"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+        
+        <div class="navbar-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header">
+        <h1><i class="fas fa-phone" style="color:#E11D48;"></i> Contact Us</h1>
+        <p class="subtitle">We'd love to hear from you. Reach out to us anytime.</p>
+    </div>
+
+    <!-- ===== LOCATION & DETAILS ===== -->
+    <div class="grid-2">
+        <div class="card">
+            <h3><i class="fas fa-map-marker-alt" style="color:var(--danger);"></i> Location</h3>
+            <p style="margin-top:8px;">123 Education Avenue,<br>Nairobi, Kenya</p>
+            <div class="map-placeholder">
+                <i class="fas fa-map"></i>
+                <p>Google Maps Location</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-envelope" style="color:var(--secondary);"></i> Get in Touch</h3>
+            <div class="contact-details">
+                <p><i class="fas fa-phone" style="color:var(--primary);"></i> <strong>+254 700 123 456</strong></p>
+                <p><i class="fas fa-envelope" style="color:var(--primary);"></i> <strong>info@stratify.school</strong></p>
+                <p><i class="fas fa-clock" style="color:var(--primary);"></i> Mon-Fri: 7:30 AM - 5:00 PM</p>
+                <hr />
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CONTACT FORM ===== -->
+    <div class="card" style="margin-top:16px;">
+        <h3>📩 Send a Message</h3>
+        <div class="message-form">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+        </div>
+        <textarea placeholder="Your Message" rows="4"></textarea>
+        <button class="btn" style="margin-top:10px;"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand"><i class="fas fa-graduation-cap"></i><span>Stratify School</span></div>
+                <p class="footer-description">Empowering education through technology.</p>
+                <div class="social-links">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="admissions.html"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-phone"></i><span>+254 700 123 456</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@stratify.school</span></div>
+                <div class="contact-item"><i class="fas fa-clock"></i><span>Mon-Fri: 7:30 AM - 5:00 PM</span></div>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email" />
+                    <button class="btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Stratify Tech — Built with <span class="heart">❤</span></div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

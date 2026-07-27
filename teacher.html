@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - Teacher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="loading.html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Stratify School</span>
+            </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="student.html"><i class="fas fa-user-graduate"></i> Student Portal</a></li>
+            <li><a href="teacher.html" class="active"><i class="fas fa-chalkboard-teacher"></i> Teacher Portal</a></li>
+            <li><a href="admin.html"><i class="fas fa-user-cog"></i> Admin Portal</a></li>
+            <li><a href="parent.html"><i class="fas fa-users"></i> Parent Portal</a></li>
+            <li><a href="admissions.html"><i class="fas fa-door-open"></i> Admissions</a></li>
+            <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+        
+        <div class="navbar-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header flex-between">
+        <h1><i class="fas fa-chalkboard-teacher" style="color:#16A34A;"></i> Teacher Dashboard</h1>
+        <span class="badge badge-green">Mr. Otieno · Mathematics</span>
+    </div>
+
+    <!-- ===== STATS ===== -->
+    <div class="stat-grid">
+        <div class="stat-card"><div class="number">42</div><div class="label">👨‍🎓 Students</div></div>
+        <div class="stat-card"><div class="number">6</div><div class="label">📚 Classes</div></div>
+        <div class="stat-card"><div class="number">3</div><div class="label">📝 Pending Results</div></div>
+        <div class="stat-card"><div class="number">91%</div><div class="label">📈 Class Average</div></div>
+    </div>
+
+    <!-- ===== ACTION CARDS ===== -->
+    <div class="grid-3">
+        <div class="card">
+            <i class="fas fa-upload card-icon-large"></i>
+            <h3>Upload Results</h3>
+            <p>Bulk upload scores via CSV or enter manually.</p>
+            <div class="flex-center" style="margin-top:12px;">
+                <button class="btn btn-sm"><i class="fas fa-file-csv"></i> Upload CSV</button>
+                <button class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Add Scores</button>
+            </div>
+        </div>
+        <div class="card">
+            <i class="fas fa-clipboard-check card-icon-large" style="color:var(--success);"></i>
+            <h3>Record Attendance</h3>
+            <p>Mark present/absent for today's class.</p>
+            <div class="flex-center" style="margin-top:12px;">
+                <button class="btn btn-sm btn-success"><i class="fas fa-check"></i> Mark All Present</button>
+                <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Manual</button>
+            </div>
+        </div>
+        <div class="card">
+            <i class="fas fa-share-alt card-icon-large" style="color:var(--secondary);"></i>
+            <h3>Share Materials</h3>
+            <p>Upload notes, assignments, and resources.</p>
+            <div class="flex-center" style="margin-top:12px;">
+                <button class="btn btn-sm btn-secondary"><i class="fas fa-upload"></i> Upload</button>
+                <button class="btn btn-sm btn-outline"><i class="fas fa-link"></i> Add Link</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CLASS LIST ===== -->
+    <div class="card" style="margin-top:16px;">
+        <h3>📚 My Classes</h3>
+        <div class="table-wrap" style="margin-top:10px;">
+            <table>
+                <thead><tr><th>Class</th><th>Students</th><th>Subject</th><th>Action</th></tr></thead>
+                <tbody>
+                    <tr><td>Form 4A</td><td>42</td><td>Mathematics</td><td><button class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Manage</button></td></tr>
+                    <tr><td>Form 3B</td><td>38</td><td>Mathematics</td><td><button class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Manage</button></td></tr>
+                    <tr><td>Form 2A</td><td>45</td><td>Mathematics</td><td><button class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Manage</button></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand"><i class="fas fa-graduation-cap"></i><span>Stratify School</span></div>
+                <p class="footer-description">Empowering education through technology.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="student.html"><i class="fas fa-chevron-right"></i> Student</a></li>
+                    <li><a href="admin.html"><i class="fas fa-chevron-right"></i> Admin</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-phone"></i><span>+254 700 123 456</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@stratify.school</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Stratify Tech — Built with <span class="heart">❤</span></div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

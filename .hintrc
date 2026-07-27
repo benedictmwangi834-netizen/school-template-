@@ -1,0 +1,107 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "accessibility/alt-text": "error",
+    "accessibility/aria-valid-attr": "error",
+    "accessibility/button-name": "error",
+    "accessibility/frame-title": "warning",
+    "accessibility/heading-order": "warning",
+    "accessibility/html-lang-valid": "error",
+    "accessibility/iframe-redirect": "warning",
+    "accessibility/image-alt": "error",
+    "accessibility/landmark-unique": "warning",
+    "accessibility/meta-viewport": "error",
+    "accessibility/no-unknown-aria": "error",
+    "accessibility/role-valid-attr": "error",
+    "accessibility/tabindex": "warning",
+    "accessibility/valid-lang": "warning",
+    "best-practices/async-scripts": "warning",
+    "best-practices/avoid-beforeunload": "warning",
+    "best-practices/canonical-url": "warning",
+    "best-practices/disown-opener": "warning",
+    "best-practices/geolocation-api": "warning",
+    "best-practices/iframe-allow": "warning",
+    "best-practices/img-dimensions": "warning",
+    "best-practices/is-cachable": "warning",
+    "best-practices/manifest-exists": "off",
+    "best-practices/meta-charset-utf-8": "error",
+    "best-practices/meta-viewport": "error",
+    "best-practices/minified-js": "off",
+    "best-practices/modern-image-formats": "warning",
+    "best-practices/no-bom": "error",
+    "best-practices/no-http-redirects": "warning",
+    "best-practices/no-vulnerable-libraries": "error",
+    "best-practices/script-tags": "warning",
+    "best-practices/strict-transport-security": "warning",
+    "best-practices/uses-https": "error",
+    "compat-api/browserslist": "error",
+    "compat-api/css": "error",
+    "compat-api/html": "error",
+    "compat-api/uses-vendored-prefix": "warning",
+    "performance/font-display": "warning",
+    "performance/image-optimization": "warning",
+    "performance/modern-image-formats": "warning",
+    "performance/network-requests": "warning",
+    "performance/no-http-cache": "warning",
+    "performance/optimize-images": "warning",
+    "performance/perf-hints": "warning",
+    "performance/small-images": "warning",
+    "performance/time-to-first-byte": "warning",
+    "performance/unused-css-rules": "off",
+    "performance/uses-long-cache-ttl": "warning",
+    "performance/uses-text-compression": "warning",
+    "pwa/apple-touch-icon": "off",
+    "pwa/icons": "off",
+    "pwa/manifest": "off",
+    "pwa/manifest-app-name": "off",
+    "pwa/manifest-display": "off",
+    "pwa/manifest-exists": "off",
+    "pwa/maskable-icon": "off",
+    "pwa/offline-content": "off",
+    "pwa/service-worker": "off",
+    "pwa/theme-color": "off",
+    "seo/favicon": "warning",
+    "seo/meta-description": "warning",
+    "seo/no-duplicate-titles": "error",
+    "seo/no-html-only-head": "error",
+    "seo/structured-data": "warning",
+    "seo/title-length": "warning"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead",
+    "not IE 11"
+  ],
+  "language": "en",
+  "formatters": [
+    "stylish"
+  ],
+  "ignoredUrls": [
+    {
+      "regex": "https://cdnjs.cloudflare.com/.*"
+    },
+    {
+      "regex": "https://cdn.jsdelivr.net/.*"
+    },
+    {
+      "regex": "https://fonts.googleapis.com/.*"
+    },
+    {
+      "regex": "https://fonts.gstatic.com/.*"
+    }
+  ],
+  "ignoredUrlsOptions": {
+    "checkForUpdates": false
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "build",
+    "*.min.js",
+    "*.min.css",
+    "vendor/**/*"
+  ]
+}

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School Portal - Multi-Tab Demo</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Stratify School</span>
+        </div>
+        <div class="navbar-right">
+            <span class="live-indicator"><i class="fas fa-circle"></i> Live Demo</span>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main class="container">
+
+    <!-- ===== TAB NAVIGATION ===== -->
+    <div class="tab-nav" id="tabNav">
+        <button class="tab-btn active" data-tab="home" onclick="switchTab('home')">
+            <i class="fas fa-home"></i> Home
+        </button>
+        <button class="tab-btn" data-tab="student" onclick="switchTab('student')">
+            <i class="fas fa-user-graduate"></i> Student
+        </button>
+        <button class="tab-btn" data-tab="teacher" onclick="switchTab('teacher')">
+            <i class="fas fa-chalkboard-teacher"></i> Teac
+
+        </button>
+        <button class="tab-btn" data-tab="admin" onclick="switchTab('admin')">
+            <i class="fas fa-user-cog"></i> Admin
+
+        </button>
+        <button class="tab-btn" data-tab="parent" onclick="switchTab('parent')">
+            <i class="fas fa-users"></i> Parent
+        </button>
+        <button class="tab-btn" data-tab="admissions" onclick="switchTab('admissions')">
+            <i class="fas fa-door-open"></i> Admissions
+        </button>
+        <button class="tab-btn" data-tab="gallery" onclick="switchTab('gallery')">
+            <i class="fas fa-images"></i> Gallery
+        </button>
+        <button class="tab-btn" data-tab="contact" onclick="switchTab('contact')">
+            <i class="fas fa-phone"></i> Contact
+        </button>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: HOME ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content active" id="tab-home">
+        <!-- Hero -->
+        <div class="hero">
+            <div>
+                <div class="hero-badge"><i class="fas fa-rocket"></i> Premium School Management System</div>
+                <h1>Welcome to Stratify School</h1>
+                <p>Complete school management system. Results, attendance, fees, and more — all in one place.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-white"><i class="fas fa-user-plus"></i> Student Login</button>
+                    <button class="btn btn-transparent"><i class="fas fa-chalkboard-teacher"></i> Teacher Login</button>
+                </div>
+            </div>
+            <div class="hero-qr">
+                <i class="fas fa-qrcode"></i>
+                <p>QR Student ID</p>
+                <span class="sample-badge">Sample: #2024-001</span>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stat-grid">
+            <div class="stat-card"><div class="number">486</div><div class="label">📚 Students</div></div>
+            <div class="stat-card"><div class="number">32</div><div class="label">👨‍🏫 Teachers</div></div>
+            <div class="stat-card"><div class="number">94%</div><div class="label">📈 Attendance</div></div>
+            <div class="stat-card"><div class="number">KES 1.2M</div><div class="label">💰 Fees Collected</div></div>
+        </div>
+
+        <!-- Quick Links -->
+        <h2 class="section-title"><i class="fas fa-th-large"></i> Quick Access</h2>
+        <div class="grid-4">
+            <div class="card clickable" onclick="switchTab('student')">
+                <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+                <h3>Student Dashboard</h3>
+                <p>Results, attendance, fee balance.</p>
+                <span class="badge">Click to view</span>
+            </div>
+            <div class="card clickable" onclick="switchTab('teacher')">
+                <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>Teacher Dashboard</h3>
+                <p>Upload results, record attendance.</p>
+                <span class="badge">Click to view</span>
+            </div>
+            <div class="card clickable" onclick="switchTab('admin')">
+                <div class="card-icon"><i class="fas fa-user-cog"></i></div>
+                <h3>Admin Dashboard</h3>
+                <p>Full control over all data.</p>
+                <span class="badge">Click to view</span>
+            </div>
+            <div class="card clickable" onclick="switchTab('parent')">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <h3>Parent Portal</h3>
+                <p>Track your child's progress.</p>
+                <span class="badge">Click to view</span>
+            </div>
+        </div>
+
+        <!-- News & AI -->
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-newspaper" style="color:var(--primary);"></i> News &amp; Events</h3>
+                <ul class="news-list">
+                    <li>📢 <strong>Sports Day</strong> — 15th Aug 2026</li>
+                    <li>📢 <strong>Parent Meeting</strong> — 22nd Aug 2026</li>
+                    <li>📢 <strong>Mid-Term Break</strong> — 28th Aug 2026</li>
+                </ul>
+            </div>
+            <div class="ai-chat">
+                <i class="fas fa-robot"></i>
+                <div class="ai-content">
+                    <strong>AI Chat Assistant</strong>
+                    <p>Ask about results, fees, or events.</p>
+                </div>
+                <span class="pill"><i class="fas fa-clock"></i> Coming Soon</span>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type question..." disabled />
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: STUDENT DASHBOARD ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-student">
+        <div class="flex-between">
+            <h2 class="section-title"><i class="fas fa-user-graduate" style="color:#2563EB;"></i> Student Dashboard</h2>
+            <span class="badge badge-blue">Jane Mwangi · Form 4A · ID: 2024-001</span>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-card"><div class="number">88%</div><div class="label">📊 Overall Grade</div></div>
+            <div class="stat-card"><div class="number">42/45</div><div class="label">✅ Attendance</div></div>
+            <div class="stat-card"><div class="number">6</div><div class="label">📝 Assignments</div></div>
+            <div class="stat-card"><div class="number">KES 12,500</div><div class="label">💰 Fee Balance</div></div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="flex-between"><h3>📊 Exam Results</h3><span class="badge">Term 1 2026</span></div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Subject</th><th>Score</th><th>Grade</th></tr></thead>
+                        <tbody>
+                            <tr><td>Mathematics</td><td>88</td><td><span class="status pass">A</span></td></tr>
+                            <tr><td>English</td><td>76</td><td><span class="status pass">B+</span></td></tr>
+                            <tr><td>Kiswahili</td><td>81</td><td><span class="status pass">A-</span></td></tr>
+                            <tr><td>Physics</td><td>63</td><td><span class="status pending">B-</span></td></tr>
+                            <tr><td>History</td><td>45</td><td><span class="status fail">D+</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex-center" style="margin-top:12px;">
+                    <button class="btn btn-success btn-sm"><i class="fas fa-download"></i> Report Card</button>
+                    <button class="btn btn-sm btn-secondary"><i class="fas fa-print"></i> Print</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3>📅 Timetable</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th></tr></thead>
+                        <tbody>
+                            <tr><td>8:00 - 8:45</td><td>Math</td><td>English</td><td>Physics</td></tr>
+                            <tr><td>8:45 - 9:30</td><td>Physics</td><td>Kiswahili</td><td>Math</td></tr>
+                            <tr><td>9:30 - 10:15</td><td>History</td><td>Math</td><td>English</td></tr>
+                            <tr><td>10:15 - 10:45</td><td colspan="3" class="break-cell">☕ Break</td></tr>
+                            <tr><td>10:45 - 11:30</td><td>English</td><td>Physics</td><td>Kiswahili</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>✅ Attendance</h3>
+                <div class="attendance-stats">
+                    <div><span>Present</span> <strong>42</strong></div>
+                    <div><span>Absent</span> <strong>3</strong></div>
+                    <div><span>Late</span> <strong>2</strong></div>
+                    <div><span class="attendance-percent">★ 93%</span></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:93%;"></div>
+                </div>
+                <div class="status-tags">
+                    <span class="status pass">✅ Present</span>
+                    <span class="status pending">⏰ Late</span>
+                    <span class="status fail">❌ Absent</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>💰 Fee Balance</h3>
+                <div class="fee-breakdown">
+                    <div><span>Total Fees</span><br><strong>KES 45,000</strong></div>
+                    <div><span>Paid</span><br><strong>KES 32,500</strong></div>
+                    <div><span>Balance</span><br><strong class="text-danger">KES 12,500</strong></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:72%;"></div>
+                </div>
+                <button class="btn btn-success btn-block"><i class="fas fa-mobile-alt"></i> Pay via M-Pesa</button>
+                <div class="payment-hint">Paybill: 123456 · Account: Student ID</div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>📝 Assignments</h3>
+                <ul class="assignment-list">
+                    <li><span>Math: Algebra</span><span class="status pass">Submitted</span></li>
+                    <li><span>English: Essay</span><span class="status pending">Pending</span></li>
+                    <li><span>Physics: Lab Report</span><span class="status fail">Overdue</span></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-qrcode" style="color:var(--primary);"></i> Student ID</h3>
+                <div class="qr-placeholder">
+                    <i class="fas fa-qrcode"></i>
+                    <p><strong>Jane Mwangi</strong></p>
+                    <p class="qr-id">ID: 2024-001 · Form 4A</p>
+                    <span class="badge">Scan for profile</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: TEACHER DASHBOARD ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-teacher">
+        <div class="flex-between">
+            <h2 class="section-title"><i class="fas fa-chalkboard-teacher" style="color:#16A34A;"></i> Teacher Dashboard</h2>
+            <span class="badge badge-green">Mr. Otieno · Mathematics</span>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-card"><div class="number">42</div><div class="label">👨‍🎓 Students</div></div>
+            <div class="stat-card"><div class="number">6</div><div class="label">📚 Classes</div></div>
+            <div class="stat-card"><div class="number">3</div><div class="label">📝 Pending Results</div></div>
+            <div class="stat-card"><div class="number">91%</div><div class="label">📈 Class Average</div></div>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-upload card-icon-large"></i>
+                <h3>Upload Results</h3>
+                <p>Bulk upload scores via CSV or enter manually.</p>
+                <div class="flex-center" style="margin-top:12px;">
+                    <button class="btn btn-sm"><i class="fas fa-file-csv"></i> Upload CSV</button>
+                    <button class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Add Scores</button>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-clipboard-check card-icon-large" style="color:var(--success);"></i>
+                <h3>Record Attendance</h3>
+                <p>Mark present/absent for today's class.</p>
+                <div class="flex-center" style="margin-top:12px;">
+                    <button class="btn btn-sm btn-success"><i class="fas fa-check"></i> Mark All Present</button>
+                    <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Manual</button>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-share-alt card-icon-large" style="color:var(--secondary);"></i>
+                <h3>Share Materials</h3>
+                <p>Upload notes, assignments, and resources.</p>
+                <div class="flex-center" style="margin-top:12px;">
+                    <button class="btn btn-sm btn-secondary"><i class="fas fa-upload"></i> Upload</button>
+                    <button class="btn btn-sm btn-outline"><i class="fas fa-link"></i> Add Link</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+            <h3>📚 My Classes</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Class</th><th>Students</th><th>Subject</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>Form 4A</td><td>42</td><td>Mathematics</td><td><button class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Manage</button></td></tr>
+                        <tr><td>Form 3B</td><td>38</td><td>Mathematics</td><td><button class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Manage</button></td></tr>
+                        <tr><td>Form 2A</td><td>45</td><td>Mathematics</td><td><button class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Manage</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: ADMIN DASHBOARD ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-admin">
+        <div class="flex-between">
+            <h2 class="section-title"><i class="fas fa-user-cog" style="color:#DC2626;"></i> Admin Dashboard</h2>
+            <span class="badge badge-red">Full Access</span>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-card"><div class="number">486</div><div class="label">👨‍🎓 Students</div></div>
+            <div class="stat-card"><div class="number">32</div><div class="label">👨‍🏫 Teachers</div></div>
+            <div class="stat-card"><div class="number">12</div><div class="label">📚 Classes</div></div>
+            <div class="stat-card"><div class="number">KES 1.2M</div><div class="label">💰 Fees Collected</div></div>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-users card-icon-large"></i>
+                <h3>Manage Students</h3>
+                <p>Add, edit, or remove students. Generate QR IDs.</p>
+                <button class="btn btn-sm" style="margin-top:10px;"><i class="fas fa-plus"></i> Add Student</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-chalkboard card-icon-large" style="color:var(--warning);"></i>
+                <h3>Manage Classes</h3>
+                <p>Create classes, assign teachers, set timetables.</p>
+                <button class="btn btn-sm btn-warning" style="margin-top:10px;"><i class="fas fa-plus"></i> New Class</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-pie card-icon-large" style="color:var(--success);"></i>
+                <h3>Reports &amp; Analytics</h3>
+                <p>Performance dashboards, fee reports, analytics.</p>
+                <button class="btn btn-sm btn-success" style="margin-top:10px;"><i class="fas fa-file-alt"></i> Generate Report</button>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+            <h3>💰 Fee Management</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Student</th><th>Class</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>Jane Mwangi</td><td>Form 4A</td><td>45,000</td><td>32,500</td><td>12,500</td><td><span class="status pending">Partial</span></td></tr>
+                        <tr><td>Kevin Otieno</td><td>Form 3B</td><td>45,000</td><td>45,000</td><td>0</td><td><span class="status pass">Paid</span></td></tr>
+                        <tr><td>Mary Wanjiru</td><td>Form 2A</td><td>40,000</td><td>10,000</td><td>30,000</td><td><span class="status fail">Overdue</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px;">
+            <div class="chart-box">
+                <h4>📊 Performance by Class</h4>
+                <canvas id="adminChart1"></canvas>
+            </div>
+            <div class="chart-box">
+                <h4>📈 Fee Collection Trend</h4>
+                <canvas id="adminChart2"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: PARENT PORTAL ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-parent">
+        <div class="flex-between">
+            <h2 class="section-title"><i class="fas fa-users" style="color:#D97706;"></i> Parent Portal</h2>
+            <span class="badge badge-amber">Mr. &amp; Mrs. Mwangi</span>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-child" style="color:var(--primary);"></i> Children</h3>
+                <div class="child-card">
+                    <strong>Jane Mwangi</strong> — Form 4A
+                    <div class="child-stats">
+                        <span>📊 Grade: 88%</span>
+                        <span>✅ Attendance: 93%</span>
+                        <span>💰 Balance: KES 12,500</span>
+                    </div>
+                </div>
+                <div class="child-card">
+                    <strong>John Mwangi</strong> — Form 2B
+                    <div class="child-stats">
+                        <span>📊 Grade: 76%</span>
+                        <span>✅ Attendance: 89%</span>
+                        <span>💰 Balance: KES 4,200</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-bell" style="color:var(--warning);"></i> Notifications</h3>
+                <ul class="notification-list">
+                    <li>🔔 <strong>Exam Results</strong> — Term 1 results available</li>
+                    <li>🔔 <strong>Fee Reminder</strong> — Balance of KES 12,500 due</li>
+                    <li>🔔 <strong>Event</strong> — Sports Day on 15th Aug</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>📊 Child Performance</h3>
+            <div style="height:200px;margin-top:10px;">
+                <canvas id="parentChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: ADMISSIONS ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-admissions">
+        <h2 class="section-title"><i class="fas fa-door-open" style="color:#4F46E5;"></i> Admissions</h2>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>📝 Apply Now</h3>
+                <p>Fill in the form to apply for admission.</p>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter full name" />
+                </div>
+                <div class="form-group">
+                    <label>Grade Applying For</label>
+                    <select>
+                        <option>Form 1</option>
+                        <option>Form 2</option>
+                        <option>Form 3</option>
+                        <option>Form 4</option>
+                    </select>
+                </div>
+                <button class="btn btn-block"><i class="fas fa-paper-plane"></i> Submit Application</button>
+            </div>
+            <div class="card">
+                <h3>📋 Admission Requirements</h3>
+                <ul class="requirements-list">
+                    <li>✅ Birth Certificate</li>
+                    <li>✅ Previous Report Cards</li>
+                    <li>✅ Passport Photo</li>
+                    <li>✅ Parent/Guardian ID</li>
+                    <li>✅ Admission Fee (KES 2,500)</li>
+                </ul>
+                <button class="btn btn-success btn-block"><i class="fas fa-download"></i> Download Application Form</button>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+            <h3>📅 Admission Timeline</h3>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="timeline-label">Application Opens</div>
+                    <strong>1st July 2026</strong>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-label">Application Closes</div>
+                    <strong>30th Sept 2026</strong>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-label">Interview Period</div>
+                    <strong>1st-15th Oct 2026</strong>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-label">Admission Offers</div>
+                    <strong>1st Nov 2026</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: GALLERY ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-gallery">
+        <h2 class="section-title"><i class="fas fa-images" style="color:#7C3AED;"></i> Photo Gallery</h2>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-icon">🏫</div>
+                <p><strong>School Campus</strong></p>
+                <span class="badge">12 photos</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon">⚽</div>
+                <p><strong>Sports Day</strong></p>
+                <span class="badge">8 photos</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon">🎓</div>
+                <p><strong>Graduation</strong></p>
+                <span class="badge">15 photos</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon">📚</div>
+                <p><strong>Library</strong></p>
+                <span class="badge">6 photos</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon">🏆</div>
+                <p><strong>Awards</strong></p>
+                <span class="badge">9 photos</span>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon">🎨</div>
+                <p><strong>Art Exhibition</strong></p>
+                <span class="badge">11 photos</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== TAB: CONTACT ===== -->
+    <!-- ============================================================ -->
+    <div class="tab-content" id="tab-contact">
+        <h2 class="section-title"><i class="fas fa-phone" style="color:#E11D48;"></i> Contact Us</h2>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-map-marker-alt" style="color:var(--danger);"></i> Location</h3>
+                <p style="margin-top:8px;">123 Education Avenue,<br>Nairobi, Kenya</p>
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <p>Google Maps Location</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-envelope" style="color:var(--secondary);"></i> Get in Touch</h3>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone" style="color:var(--primary);"></i> <strong>+254 700 123 456</strong></p>
+                    <p><i class="fas fa-envelope" style="color:var(--primary);"></i> <strong>info@stratify.school</strong></p>
+                    <p><i class="fas fa-clock" style="color:var(--primary);"></i> Mon-Fri: 7:30 AM - 5:00 PM</p>
+                    <hr />
+                    <div class="social-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+            <h3>📩 Send a Message</h3>
+            <div class="message-form">
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="Your Email" />
+            </div>
+            <textarea placeholder="Your Message" rows="3"></textarea>
+            <button class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </div>
+    </div>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- ===== ENHANCED FOOTER ===== -->
+<!-- ============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Column 1: Brand & Description -->
+            <div>
+                <div class="brand">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Stratify School</span>
+                </div>
+                <p class="footer-description">
+                    Empowering education through technology. A complete school management system 
+                    designed for modern learning environments.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#" onclick="switchTab('admissions');return false;"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                    <li><a href="#" onclick="switchTab('gallery');return false;"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                    <li><a href="#" onclick="switchTab('contact');return false;"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: For Students & Parents -->
+            <div>
+                <h4>For Students Parents</h4>
+                <ul>
+                    <li><a href="#" onclick="switchTab('student');return false;"><i class="fas fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="#" onclick="switchTab('parent');return false;"><i class="fas fa-chevron-right"></i> Parent Portal</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Exam Results</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Fee Payment</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Timetable</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Downloads</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact & Newsletter -->
+            <div>
+                <h4>Get In Touch</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Education Avenue, Nairobi, Kenya</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 700 123 456</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@stratify.school</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 7:30 AM - 5:00 PM</span>
+                </div>
+
+                <h4 style="margin-top:20px;">📬 Newsletter</h4>
+                <p style="font-size:0.85rem;color:var(--footer-text);">Subscribe for updates and news.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" />
+                    <button class="btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </div>
+
+                <div class="payment-methods">
+                    <span><i class="fas fa-mobile-alt"></i> M-Pesa</span>
+                    <span><i class="fas fa-credit-card"></i> Visa</span>
+                    <span><i class="fas fa-credit-card"></i> Mastercard</span>
+                    <span><i class="fas fa-university"></i> Bank Transfer</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div>
+                copyright 2026 <strong style="color:var(--footer-heading);">Stratify Tech</strong> — 
+                Built with <span class="heart">❤</span> for schools.
+                <span class="version-badge"><i class="fas fa-code"></i> v2.0</span>
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#" onclick="switchTab('contact');return false;">Support</a>
+                <a href="#"><i class="fas fa-globe"></i> English</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== Custom JS ===== -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
