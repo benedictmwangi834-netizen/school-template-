@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - Admissions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="index.html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Stratify School</span>
+            </a>
+        </div>
+        <div class="navbar-right">
+            <span class="live-indicator"><i class="fas fa-circle"></i> Live Demo</span>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container main-content">
+    <div class="page-header">
+        <h1><i class="fas fa-door-open" style="color:#4F46E5;"></i> Admissions</h1>
+        <p class="subtitle">Join the Stratify School community. Apply now for the upcoming academic year.</p>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>📝 Apply Now</h3>
+            <p>Fill in the form to apply for admission.</p>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter full name" />
+            </div>
+            <div class="form-group">
+                <label>Grade Applying For</label>
+                <select>
+                    <option>Form 1</option>
+                    <option>Form 2</option>
+                    <option>Form 3</option>
+                    <option>Form 4</option>
+                </select>
+            </div>
+            <button class="btn btn-block"><i class="fas fa-paper-plane"></i> Submit Application</button>
+        </div>
+        <div class="card">
+            <h3>📋 Admission Requirements</h3>
+            <ul class="requirements-list">
+                <li>✅ Birth Certificate</li>
+                <li>✅ Previous Report Cards</li>
+                <li>✅ Passport Photo</li>
+                <li>✅ Parent/Guardian ID</li>
+                <li>✅ Admission Fee (KES 2,500)</li>
+            </ul>
+            <button class="btn btn-success btn-block"><i class="fas fa-download"></i> Download Application Form</button>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+        <h3>📅 Admission Timeline</h3>
+        <div class="timeline-grid">
+            <div class="timeline-item">
+                <div class="timeline-label">Application Opens</div>
+                <strong>1st July 2026</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Application Closes</div>
+                <strong>30th Sept 2026</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Interview Period</div>
+                <strong>1st-15th Oct 2026</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Admission Offers</div>
+                <strong>1st Nov 2026</strong>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand"><i class="fas fa-graduation-cap"></i><span>Stratify School</span></div>
+                <p class="footer-description">Empowering education through technology.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-phone"></i><span>+254 700 123 456</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@stratify.school</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Stratify Tech — Built with <span class="heart">❤</span></div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

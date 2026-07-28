@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - Parent Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="index.html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Stratify School</span>
+            </a>
+        </div>
+        <div class="navbar-right">
+            <span class="live-indicator"><i class="fas fa-circle"></i> Parent Panel</span>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container main-content">
+    <div class="page-header flex-between">
+        <h1><i class="fas fa-users" style="color:#D97706;"></i> Parent Portal</h1>
+        <span class="badge badge-amber">Mr. &amp; Mrs. Mwangi</span>
+    </div>
+
+    <!-- ===== CHILDREN & NOTIFICATIONS ===== -->
+    <div class="grid-2">
+        <div class="card">
+            <h3><i class="fas fa-child" style="color:var(--primary);"></i> Children</h3>
+            <div class="child-card">
+                <strong>Jane Mwangi</strong> — Form 4A
+                <div class="child-stats">
+                    <span>📊 Grade: 88%</span>
+                    <span>✅ Attendance: 93%</span>
+                    <span>💰 Balance: KES 12,500</span>
+                </div>
+            </div>
+            <div class="child-card">
+                <strong>John Mwangi</strong> — Form 2B
+                <div class="child-stats">
+                    <span>📊 Grade: 76%</span>
+                    <span>✅ Attendance: 89%</span>
+                    <span>💰 Balance: KES 4,200</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-bell" style="color:var(--warning);"></i> Notifications</h3>
+            <ul class="notification-list">
+                <li>🔔 <strong>Exam Results</strong> — Term 1 results available</li>
+                <li>🔔 <strong>Fee Reminder</strong> — Balance of KES 12,500 due</li>
+                <li>🔔 <strong>Event</strong> — Sports Day on 15th Aug</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== LOGOUT ===== -->
+    <div style="margin-top:20px;text-align:right;">
+        <button class="btn btn-danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand"><i class="fas fa-graduation-cap"></i><span>Stratify School</span></div>
+                <p class="footer-description">Empowering education through technology.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="student.html"><i class="fas fa-chevron-right"></i> Student</a></li>
+                    <li><a href="teacher.html"><i class="fas fa-chevron-right"></i> Teacher</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-phone"></i><span>+254 700 123 456</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@stratify.school</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Stratify Tech — Built with <span class="heart">❤</span></div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    const user = JSON.parse(sessionStorage.getItem('user') || 'null');
+    if (!user || user.role !== 'parent') {
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>

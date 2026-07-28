@@ -1,9 +1,518 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Stratify School</title> 
-</head> 
-<body> 
-    <h1>Welcome to Stratify School</h1> 
-</body> 
-</html> 
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen" class="loading-screen">
+    <div class="loading-container">
+        <div class="loading-logo">
+            <div class="loading-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="loading-school-name">
+                Stratify <span>School</span>
+            </div>
+            <div class="loading-subtitle">Empowering Education Through Technology</div>
+        </div>
+        <div class="loading-progress">
+            <div class="loading-progress-fill"></div>
+        </div>
+        <div class="loading-tip" id="loadingTip">
+            <i class="fas fa-lightbulb"></i> Preparing your experience...
+        </div>
+    </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="index.html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Stratify School</span>
+            </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+        
+        <div class="navbar-right">
+            <span class="live-indicator"><i class="fas fa-circle"></i> Live Demo</span>
+            <!-- Login Button - Direct link to login.html -->
+            <a href="login.html" class="btn-login">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="#contact" class="btn-demo">
+                <i class="fas fa-calendar-plus"></i> Book Demo
+            </a>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container main-content">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero">
+        <div>
+            <div class="hero-badge"><i class="fas fa-rocket"></i> Premium School Management System</div>
+            <h1>Welcome to Stratify School</h1>
+            <p>Complete school management system. Results, attendance, fees, and more — all in one place.</p>
+            <div class="hero-buttons">
+                <!-- Direct link to login.html -->
+                <a href="login.html" class="btn btn-white">
+                    <i class="fas fa-sign-in-alt"></i> Login Now
+                </a>
+                <a href="#contact" class="btn btn-transparent">
+                    <i class="fas fa-calendar-plus"></i> Book Demo
+                </a>
+            </div>
+        </div>
+        <div class="hero-qr">
+            <i class="fas fa-qrcode"></i>
+            <p>QR Student ID</p>
+            <span class="sample-badge">Sample: #2024-001</span>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stat-grid">
+        <div class="stat-card"><div class="number">486</div><div class="label">📚 Students</div></div>
+        <div class="stat-card"><div class="number">32</div><div class="label">👨‍🏫 Teachers</div></div>
+        <div class="stat-card"><div class="number">94%</div><div class="label">📈 Attendance</div></div>
+        <div class="stat-card"><div class="number">KES 1.2M</div><div class="label">💰 Fees Collected</div></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ===== ABOUT SECTION ===== -->
+    <!-- ============================================================ -->
+    <section id="about">
+        <h2 class="section-title"><i class="fas fa-info-circle" style="color:var(--primary);"></i> About Us</h2>
+        <div class="card">
+            <div class="grid-2">
+                <div>
+                    <h3>Our School</h3>
+                    <p style="color:var(--text-secondary);">Stratify School is a premier educational institution dedicated to nurturing young minds and preparing them for a bright future. With a focus on academic excellence, character development, and innovation, we provide a holistic learning environment.</p>
+                    <div style="margin-top:12px;display:flex;gap:20px;flex-wrap:wrap;">
+                        <div><i class="fas fa-calendar-check" style="color:var(--primary);"></i> <strong>Founded:</strong> 2010</div>
+                        <div><i class="fas fa-users" style="color:var(--primary);"></i> <strong>Students:</strong> 486</div>
+                        <div><i class="fas fa-chalkboard-teacher" style="color:var(--primary);"></i> <strong>Teachers:</strong> 32</div>
+                        <div><i class="fas fa-trophy" style="color:var(--primary);"></i> <strong>Awards:</strong> 15+</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Our Mission</h3>
+                    <p style="color:var(--text-secondary);">To empower students with knowledge, skills, and values that enable them to thrive in a rapidly changing world.</p>
+                    <h3 style="margin-top:12px;">Our Vision</h3>
+                    <p style="color:var(--text-secondary);">To be a center of excellence in education, producing innovative leaders who make a positive impact on society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ===== SERVICES SECTION ===== -->
+    <!-- ============================================================ -->
+    <section id="services">
+        <h2 class="section-title"><i class="fas fa-cogs" style="color:var(--secondary);"></i> Our Services</h2>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-user-graduate card-icon-large" style="color:#2563EB;"></i>
+                <h3>Student Management</h3>
+                <p>Complete student lifecycle management including admissions, attendance, and academic tracking.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher card-icon-large" style="color:#16A34A;"></i>
+                <h3>Teacher Portal</h3>
+                <p>Upload results, record attendance, share learning materials, and manage classes efficiently.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-cog card-icon-large" style="color:#DC2626;"></i>
+                <h3>Admin Dashboard</h3>
+                <p>Full control over all school data including student records, fees, and reports.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-users card-icon-large" style="color:#D97706;"></i>
+                <h3>Parent Portal</h3>
+                <p>Real-time tracking of children's academic progress, attendance, and fee status.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-money-bill-wave card-icon-large" style="color:#22C55E;"></i>
+                <h3>Fee Management</h3>
+                <p>Streamlined fee collection, payment tracking, and automated reminders.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line card-icon-large" style="color:#7C3AED;"></i>
+                <h3>Analytics & Reports</h3>
+                <p>Comprehensive reports on student performance, attendance trends, and financial data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ===== CONTACT SECTION ===== -->
+    <!-- ============================================================ -->
+    <section id="contact">
+        <h2 class="section-title"><i class="fas fa-phone" style="color:#E11D48;"></i> Contact Us</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-map-marker-alt" style="color:var(--danger);"></i> Location</h3>
+                <p style="margin-top:8px;">123 Education Avenue,<br>Nairobi, Kenya</p>
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <p>Google Maps Location</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-envelope" style="color:var(--secondary);"></i> Get in Touch</h3>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone" style="color:var(--primary);"></i> <strong>+254 700 123 456</strong></p>
+                    <p><i class="fas fa-envelope" style="color:var(--primary);"></i> <strong>info@stratify.school</strong></p>
+                    <p><i class="fas fa-clock" style="color:var(--primary);"></i> Mon-Fri: 7:30 AM - 5:00 PM</p>
+                    <hr />
+                    <div class="social-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Stratify School</span>
+                </div>
+                <p class="footer-description">
+                    Empowering education through technology. A complete school management system
+                    designed for modern learning environments.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login</a></li>
+                    <li><a href="admissions.html"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Portals</h4>
+                <ul>
+                    <li><a href="student.html"><i class="fas fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="teacher.html"><i class="fas fa-chevron-right"></i> Teacher Portal</a></li>
+                    <li><a href="admin.html"><i class="fas fa-chevron-right"></i> Admin Portal</a></li>
+                    <li><a href="parent.html"><i class="fas fa-chevron-right"></i> Parent Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get In Touch</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Education Avenue, Nairobi, Kenya</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254 700 123 456</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@stratify.school</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 7:30 AM - 5:00 PM</span>
+                </div>
+                <h4 style="margin-top:20px;">📬 Newsletter</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" />
+                    <button class="btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                &copy; 2026 <strong style="color:var(--footer-heading);">Stratify Tech</strong> —
+                Built with <span class="heart">❤</span> for schools.
+                <span class="version-badge"><i class="fas fa-code"></i> v2.0</span>
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#contact">Support</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+<!-- ============================================================ -->
+<!-- ===== HOMEPAGE SCRIPT ===== -->
+<!-- ============================================================ -->
+<script>
+    // ================================================================
+    // LOADING SCREEN
+    // ================================================================
+    const loadingTips = [
+        '📚 We have over 500 students enrolled!',
+        '🎓 95% university placement rate for graduates.',
+        '🏆 Ranked #1 school in the region.',
+        '🌍 Exchange programs with 12 countries.',
+        '💡 AI assistant coming soon to help you!',
+        '📱 Access your portal from any device.',
+        '💰 Pay fees easily using M-Pesa integration.',
+        '⭐ 4.8/5 rating from parents.'
+    ];
+
+    let tipIndex = 0;
+    let progress = 0;
+    let loadingInterval;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'flex';
+        }
+        startProgress();
+        rotateTip();
+        setInterval(rotateTip, 2500);
+
+        window.addEventListener('load', function() {
+            setTimeout(hideLoadingScreen, 500);
+        });
+
+        setTimeout(function() {
+            if (progress < 100) {
+                hideLoadingScreen();
+            }
+        }, 5000);
+
+        // Check if user is logged in
+        checkLoginStatus();
+    });
+
+    function startProgress() {
+        const fill = document.querySelector('.loading-progress-fill');
+        if (!fill) return;
+
+        loadingInterval = setInterval(() => {
+            let increment;
+            if (progress < 70) {
+                increment = Math.random() * 6 + 2;
+            } else if (progress < 90) {
+                increment = Math.random() * 3 + 1;
+            } else {
+                increment = Math.random() * 1.5 + 0.5;
+            }
+            progress = Math.min(progress + increment, 100);
+            fill.style.width = progress + '%';
+
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                setTimeout(hideLoadingScreen, 400);
+            }
+        }, 150);
+    }
+
+    function rotateTip() {
+        const tipElement = document.getElementById('loadingTip');
+        if (!tipElement) return;
+        tipElement.style.opacity = '0';
+        setTimeout(() => {
+            tipIndex = (tipIndex + 1) % loadingTips.length;
+            tipElement.innerHTML = `<i class="fas fa-lightbulb"></i> ${loadingTips[tipIndex]}`;
+            tipElement.style.opacity = '1';
+        }, 300);
+    }
+
+    function hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 800);
+        }
+        if (loadingInterval) {
+            clearInterval(loadingInterval);
+        }
+    }
+
+    window.hideLoadingScreen = hideLoadingScreen;
+
+    // ================================================================
+    // THEME TOGGLE
+    // ================================================================
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+
+        html.setAttribute('data-theme', next);
+
+        const themeLabel = document.getElementById('themeLabel');
+        if (themeLabel) {
+            themeLabel.textContent = next === 'dark' ? 'Light' : 'Dark';
+        }
+
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            icon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        localStorage.setItem('theme', next);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const themeLabel = document.getElementById('themeLabel');
+        if (themeLabel) {
+            themeLabel.textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+        }
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+
+    window.toggleTheme = toggleTheme;
+
+    // ================================================================
+    // MOBILE MENU
+    // ================================================================
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.classList.toggle('active');
+        }
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    window.toggleMobileMenu = toggleMobileMenu;
+
+    // ================================================================
+    // SMOOTH SCROLL
+    // ================================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // ================================================================
+    // CHECK LOGIN STATUS
+    // ================================================================
+    async function checkLoginStatus() {
+        try {
+            const response = await fetch('/api/user');
+            const data = await response.json();
+            
+            if (data.success) {
+                const user = data.user;
+                const loginBtn = document.querySelector('.btn-login');
+                if (loginBtn) {
+                    loginBtn.innerHTML = `<i class="fas fa-user"></i> ${user.username}`;
+                    loginBtn.href = '#';
+                    loginBtn.onclick = function(e) {
+                        e.preventDefault();
+                        if (confirm(`Logged in as ${user.username} (${user.role}). Logout?`)) {
+                            logout();
+                        }
+                    };
+                }
+            }
+        } catch (error) {
+            console.log('Not logged in');
+        }
+    }
+
+    // ================================================================
+    // LOGOUT
+    // ================================================================
+    async function logout() {
+        try {
+            const response = await fetch('/api/logout', {
+                method: 'POST'
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                sessionStorage.removeItem('user');
+                const loginBtn = document.querySelector('.btn-login');
+                if (loginBtn) {
+                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login';
+                    loginBtn.href = 'login.html';
+                    loginBtn.onclick = null;
+                }
+                alert(data.message);
+                window.location.href = 'index.html';
+            }
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    }
+
+    window.logout = logout;
+</script>
+
+</body>
+</html>

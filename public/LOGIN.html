@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ================================================================
+           LOGIN PAGE SPECIFIC STYLES
+           ================================================================ */
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header .brand-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .login-header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .login-header h1 span {
+            color: var(--primary);
+        }
+
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Role Selection Tabs */
+        .role-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .role-tab {
+            padding: 10px 8px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .role-tab i {
+            font-size: 1.2rem;
+        }
+
+        .role-tab:hover {
+            border-color: var(--primary-light);
+            color: var(--text);
+        }
+
+        .role-tab.active {
+            border-color: var(--primary);
+            background: rgba(79, 70, 229, 0.05);
+            color: var(--primary);
+        }
+
+        .role-tab.active i {
+            color: var(--primary);
+        }
+
+        /* Form */
+        .login-form .form-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .login-form .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+        }
+
+        .login-form .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all var(--transition);
+        }
+
+        .login-form .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .login-form .form-group .password-toggle {
+            position: absolute;
+            right: 14px;
+            bottom: 14px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .login-form .form-group .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        .login-message {
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .login-message.success {
+            display: block;
+            background: #DCFCE7;
+            color: #15803D;
+            border: 1px solid #86EFAC;
+        }
+
+        .login-message.error {
+            display: block;
+            background: #FEE2E2;
+            color: #B91C1C;
+            border: 1px solid #FCA5A5;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .login-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.01);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* ================================================================
+           CREDENTIALS SECTION
+           ================================================================ */
+        .credentials-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+        }
+
+        .credentials-section h4 {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .credentials-section h4 i {
+            color: var(--primary);
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .credential-card {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            transition: all var(--transition);
+            cursor: pointer;
+        }
+
+        .credential-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .credential-card .role-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 30px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .credential-card .role-badge.admin {
+            background: #DC2626;
+        }
+        .credential-card .role-badge.student {
+            background: #2563EB;
+        }
+        .credential-card .role-badge.teacher {
+            background: #16A34A;
+        }
+        .credential-card .role-badge.parent {
+            background: #D97706;
+        }
+
+        .credential-card .username {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .credential-card .password {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+
+        .credential-card .copy-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all var(--transition);
+        }
+
+        .credential-card .copy-btn:hover {
+            color: var(--primary);
+            background: var(--bg);
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+        /* ================================================================
+           RESPONSIVE
+           ================================================================ */
+        @media (max-width: 520px) {
+            .login-container {
+                padding: 24px;
+            }
+
+            .role-tabs {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .role-tab {
+                padding: 8px 6px;
+                font-size: 0.7rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen" class="loading-screen">
+    <div class="loading-container">
+        <div class="loading-logo">
+            <div class="loading-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="loading-school-name">
+                Stratify <span>School</span>
+            </div>
+            <div class="loading-subtitle">Empowering Education Through Technology</div>
+        </div>
+        <div class="loading-progress">
+            <div class="loading-progress-fill"></div>
+        </div>
+        <div class="loading-tip" id="loadingTip">
+            <i class="fas fa-lightbulb"></i> Preparing your experience...
+        </div>
+    </div>
+</div>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div class="login-page">
+    <div class="login-container">
+        <!-- Header -->
+        <div class="login-header">
+            <div class="brand-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>Stratify <span>School</span></h1>
+            <p>Sign in to access your dashboard</p>
+        </div>
+
+        <!-- Role Selection Tabs -->
+        <div class="role-tabs" id="roleTabs">
+            <button class="role-tab active" data-role="student" onclick="selectRole('student')">
+                <i class="fas fa-user-graduate"></i>
+                Student
+            </button>
+            <button class="role-tab" data-role="teacher" onclick="selectRole('teacher')">
+                <i class="fas fa-chalkboard-teacher"></i>
+                Teacher
+            </button>
+            <button class="role-tab" data-role="parent" onclick="selectRole('parent')">
+                <i class="fas fa-users"></i>
+                Parent
+            </button>
+            <button class="role-tab" data-role="admin" onclick="selectRole('admin')">
+                <i class="fas fa-user-cog"></i>
+                Admin
+            </button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
+            <div id="loginMessage" class="login-message"></div>
+
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="loginUsername" placeholder="Enter your username" required autofocus />
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required />
+                <span class="password-toggle" onclick="togglePasswordVisibility()">
+                    <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                </span>
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+        </form>
+
+        <!-- ============================================================ -->
+        <!-- CREDENTIALS SECTION - All Login Details -->
+        <!-- ============================================================ -->
+        <div class="credentials-section">
+            <h4><i class="fas fa-key"></i> Demo Credentials</h4>
+            <div class="credentials-grid">
+                <!-- Admin -->
+                <div class="credential-card" onclick="fillCredentials('admin', 'admin@2026')">
+                    <span class="role-badge admin">Admin</span>
+                    <div class="username">👤 admin</div>
+                    <div class="password">🔑 admin@2026</div>
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyCredentials('admin', 'admin@2026')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Student -->
+                <div class="credential-card" onclick="fillCredentials('student', 'student@2026')">
+                    <span class="role-badge student">Student</span>
+                    <div class="username">👤 student</div>
+                    <div class="password">🔑 student@2026</div>
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyCredentials('student', 'student@2026')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Teacher -->
+                <div class="credential-card" onclick="fillCredentials('teacher', 'teacher@2026')">
+                    <span class="role-badge teacher">Teacher</span>
+                    <div class="username">👤 teacher</div>
+                    <div class="password">🔑 teacher@2026</div>
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyCredentials('teacher', 'teacher@2026')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Parent -->
+                <div class="credential-card" onclick="fillCredentials('parent', 'parent@2026')">
+                    <span class="role-badge parent">Parent</span>
+                    <div class="username">👤 parent</div>
+                    <div class="password">🔑 parent@2026</div>
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyCredentials('parent', 'parent@2026')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Additional Users -->
+            <div style="margin-top:12px;padding:12px;background:var(--bg);border-radius:10px;border:1px dashed var(--border);">
+                <p style="font-size:0.75rem;color:var(--text-secondary);text-align:center;">
+                    <i class="fas fa-info-circle"></i> 
+                    <strong>Additional users:</strong> 
+                    jane (student), peter (teacher), grace (parent), mike (admin) 
+                    <span style="color:var(--text-secondary);">| Password: <strong>user@2026</strong></span>
+                </p>
+            </div>
+
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+
+<!-- ============================================================ -->
+<!-- ===== LOGIN PAGE SCRIPT ===== -->
+<!-- ============================================================ -->
+<script>
+    // ================================================================
+    // LOADING SCREEN
+    // ================================================================
+    const loadingTips = [
+        '📚 We have over 500 students enrolled!',
+        '🎓 95% university placement rate for graduates.',
+        '🏆 Ranked #1 school in the region.',
+        '🌍 Exchange programs with 12 countries.',
+        '💡 AI assistant coming soon to help you!',
+        '📱 Access your portal from any device.',
+        '💰 Pay fees easily using M-Pesa integration.',
+        '⭐ 4.8/5 rating from parents.'
+    ];
+
+    let tipIndex = 0;
+    let progress = 0;
+    let loadingInterval;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'flex';
+        }
+        startProgress();
+        rotateTip();
+        setInterval(rotateTip, 2500);
+
+        window.addEventListener('load', function() {
+            setTimeout(hideLoadingScreen, 500);
+        });
+
+        setTimeout(function() {
+            if (progress < 100) {
+                hideLoadingScreen();
+            }
+        }, 5000);
+
+        // Set default role
+        selectRole('student');
+    });
+
+    function startProgress() {
+        const fill = document.querySelector('.loading-progress-fill');
+        if (!fill) return;
+
+        loadingInterval = setInterval(() => {
+            let increment;
+            if (progress < 70) {
+                increment = Math.random() * 6 + 2;
+            } else if (progress < 90) {
+                increment = Math.random() * 3 + 1;
+            } else {
+                increment = Math.random() * 1.5 + 0.5;
+            }
+            progress = Math.min(progress + increment, 100);
+            fill.style.width = progress + '%';
+
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                setTimeout(hideLoadingScreen, 400);
+            }
+        }, 150);
+    }
+
+    function rotateTip() {
+        const tipElement = document.getElementById('loadingTip');
+        if (!tipElement) return;
+        tipElement.style.opacity = '0';
+        setTimeout(() => {
+            tipIndex = (tipIndex + 1) % loadingTips.length;
+            tipElement.innerHTML = `<i class="fas fa-lightbulb"></i> ${loadingTips[tipIndex]}`;
+            tipElement.style.opacity = '1';
+        }, 300);
+    }
+
+    function hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 800);
+        }
+        if (loadingInterval) {
+            clearInterval(loadingInterval);
+        }
+    }
+
+    window.hideLoadingScreen = hideLoadingScreen;
+
+    // ================================================================
+    // THEME TOGGLE
+    // ================================================================
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+
+        html.setAttribute('data-theme', next);
+
+        const themeLabel = document.getElementById('themeLabel');
+        if (themeLabel) {
+            themeLabel.textContent = next === 'dark' ? 'Light' : 'Dark';
+        }
+
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            icon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        localStorage.setItem('theme', next);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const themeLabel = document.getElementById('themeLabel');
+        if (themeLabel) {
+            themeLabel.textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+        }
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+
+    window.toggleTheme = toggleTheme;
+
+    // ================================================================
+    // ROLE SELECTION
+    // ================================================================
+    let selectedRole = 'student';
+
+    function selectRole(role) {
+        selectedRole = role;
+        
+        document.querySelectorAll('.role-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.role === role);
+        });
+
+        const usernameInput = document.getElementById('loginUsername');
+        const roleNames = {
+            student: 'student',
+            teacher: 'teacher',
+            parent: 'parent',
+            admin: 'admin'
+        };
+        usernameInput.placeholder = `Enter ${roleNames[role]} username`;
+        
+        const messageDiv = document.getElementById('loginMessage');
+        messageDiv.className = 'login-message';
+        messageDiv.style.display = 'none';
+        
+        document.getElementById('loginForm').reset();
+        usernameInput.focus();
+    }
+
+    window.selectRole = selectRole;
+
+    // ================================================================
+    // FILL CREDENTIALS
+    // ================================================================
+    function fillCredentials(username, password) {
+        document.getElementById('loginUsername').value = username;
+        document.getElementById('loginPassword').value = password;
+        
+        // Highlight the fields
+        document.getElementById('loginUsername').style.borderColor = '#22C55E';
+        document.getElementById('loginPassword').style.borderColor = '#22C55E';
+        
+        setTimeout(() => {
+            document.getElementById('loginUsername').style.borderColor = '';
+            document.getElementById('loginPassword').style.borderColor = '';
+        }, 2000);
+        
+        // Focus on password field
+        document.getElementById('loginPassword').focus();
+    }
+
+    window.fillCredentials = fillCredentials;
+
+    // ================================================================
+    // COPY CREDENTIALS
+    // ================================================================
+    function copyCredentials(username, password) {
+        const text = `Username: ${username}\nPassword: ${password}`;
+        
+        navigator.clipboard.writeText(text).then(() => {
+            const messageDiv = document.getElementById('loginMessage');
+            messageDiv.className = 'login-message success';
+            messageDiv.style.display = 'block';
+            messageDiv.innerHTML = `<i class="fas fa-check-circle"></i> Credentials copied to clipboard!`;
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 3000);
+        }).catch(() => {
+            // Fallback for older browsers
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            const messageDiv = document.getElementById('loginMessage');
+            messageDiv.className = 'login-message success';
+            messageDiv.style.display = 'block';
+            messageDiv.innerHTML = `<i class="fas fa-check-circle"></i> Credentials copied to clipboard!`;
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 3000);
+        });
+    }
+
+    window.copyCredentials = copyCredentials;
+
+    // ================================================================
+    // PASSWORD VISIBILITY TOGGLE
+    // ================================================================
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('loginPassword');
+        const icon = document.getElementById('passwordToggleIcon');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.className = 'fas fa-eye-slash';
+        } else {
+            passwordInput.type = 'password';
+            icon.className = 'fas fa-eye';
+        }
+    }
+
+    window.togglePasswordVisibility = togglePasswordVisibility;
+
+    // ================================================================
+    // LOGIN HANDLER
+    // ================================================================
+    async function handleLogin(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('loginUsername').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+        const messageDiv = document.getElementById('loginMessage');
+        const loginBtn = document.getElementById('loginBtn');
+        
+        loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+        loginBtn.disabled = true;
+        
+        messageDiv.className = 'login-message';
+        messageDiv.style.display = 'none';
+        
+        if (!username || !password) {
+            messageDiv.className = 'login-message error';
+            messageDiv.style.display = 'block';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter both username and password.';
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+            loginBtn.disabled = false;
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                messageDiv.className = 'login-message success';
+                messageDiv.style.display = 'block';
+                messageDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${data.message}`;
+                
+                sessionStorage.setItem('user', JSON.stringify(data.user));
+                
+                setTimeout(() => {
+                    window.location.href = data.redirect;
+                }, 1500);
+            } else {
+                messageDiv.className = 'login-message error';
+                messageDiv.style.display = 'block';
+                messageDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${data.message}`;
+                
+                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+                loginBtn.disabled = false;
+                
+                document.querySelector('.login-container').style.animation = 'shake 0.5s ease';
+                setTimeout(() => {
+                    document.querySelector('.login-container').style.animation = '';
+                }, 500);
+            }
+        } catch (error) {
+            messageDiv.className = 'login-message error';
+            messageDiv.style.display = 'block';
+            messageDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> Connection error. Please make sure the server is running.`;
+            
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+            loginBtn.disabled = false;
+        }
+    }
+
+    window.handleLogin = handleLogin;
+
+    // ================================================================
+    // ENTER KEY SUPPORT
+    // ================================================================
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const form = document.getElementById('loginForm');
+            if (form) {
+                form.dispatchEvent(new Event('submit'));
+            }
+        }
+    });
+
+    // ================================================================
+    // SHAKE ANIMATION
+    // ================================================================
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-10px); }
+            80% { transform: translateX(10px); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
+</body>
+</html>

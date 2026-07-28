@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stratify School - Student Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="index.html">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Stratify School</span>
+            </a>
+        </div>
+        <div class="navbar-right">
+            <span class="live-indicator"><i class="fas fa-circle"></i> Student Panel</span>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container main-content">
+    <div class="page-header flex-between">
+        <h1><i class="fas fa-user-graduate" style="color:#2563EB;"></i> Student Dashboard</h1>
+        <span class="badge badge-blue">Jane Mwangi · Form 4A · ID: 2024-001</span>
+    </div>
+
+    <!-- ===== STATS ===== -->
+    <div class="stat-grid">
+        <div class="stat-card"><div class="number">88%</div><div class="label">📊 Overall Grade</div></div>
+        <div class="stat-card"><div class="number">42/45</div><div class="label">✅ Attendance</div></div>
+        <div class="stat-card"><div class="number">6</div><div class="label">📝 Assignments</div></div>
+        <div class="stat-card"><div class="number">KES 12,500</div><div class="label">💰 Fee Balance</div></div>
+    </div>
+
+    <!-- ===== RESULTS & TIMETABLE ===== -->
+    <div class="grid-2">
+        <div class="card">
+            <div class="flex-between"><h3>📊 Exam Results</h3><span class="badge">Term 1 2026</span></div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Subject</th><th>Score</th><th>Grade</th></tr></thead>
+                    <tbody>
+                        <tr><td>Mathematics</td><td>88</td><td><span class="status pass">A</span></td></tr>
+                        <tr><td>English</td><td>76</td><td><span class="status pass">B+</span></td></tr>
+                        <tr><td>Kiswahili</td><td>81</td><td><span class="status pass">A-</span></td></tr>
+                        <tr><td>Physics</td><td>63</td><td><span class="status pending">B-</span></td></tr>
+                        <tr><td>History</td><td>45</td><td><span class="status fail">D+</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <h3>📅 Timetable</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th></tr></thead>
+                    <tbody>
+                        <tr><td>8:00 - 8:45</td><td>Math</td><td>English</td><td>Physics</td></tr>
+                        <tr><td>8:45 - 9:30</td><td>Physics</td><td>Kiswahili</td><td>Math</td></tr>
+                        <tr><td>9:30 - 10:15</td><td>History</td><td>Math</td><td>English</td></tr>
+                        <tr><td>10:15 - 10:45</td><td colspan="3" class="break-cell">☕ Break</td></tr>
+                        <tr><td>10:45 - 11:30</td><td>English</td><td>Physics</td><td>Kiswahili</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LOGOUT ===== -->
+    <div style="margin-top:20px;text-align:right;">
+        <button class="btn btn-danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand"><i class="fas fa-graduation-cap"></i><span>Stratify School</span></div>
+                <p class="footer-description">Empowering education through technology.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="teacher.html"><i class="fas fa-chevron-right"></i> Teacher</a></li>
+                    <li><a href="parent.html"><i class="fas fa-chevron-right"></i> Parent</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-phone"></i><span>+254 700 123 456</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@stratify.school</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Stratify Tech — Built with <span class="heart">❤</span></div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    const user = JSON.parse(sessionStorage.getItem('user') || 'null');
+    if (!user || user.role !== 'student') {
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>
